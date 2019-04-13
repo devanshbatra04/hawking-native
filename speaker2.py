@@ -1,29 +1,11 @@
 from __future__ import division
 
-import re
-import sys
-import time
 import io
-import random
-import string
-
-from google.cloud import speech
-from google.cloud.speech import enums
-from google.cloud.speech import types
-from google.cloud import language
-from google.cloud.language import enums
-from google.cloud.language import types
-
-import six
 
 #import pyaudio
-import wave
-from six.moves import queue
 #import pygame
 
-import time
-
-from classify_text_tutorial import classify
+from GUI.conversation.classify_text_tutorial import classify
 
 from google.cloud import texttospeech
 

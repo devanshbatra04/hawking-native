@@ -1,21 +1,14 @@
 from __future__ import division
 
-import re
-import sys
-import time
 import io
 import os
 import random
-import six
 from classify_text_tutorial import classify
-from google.cloud import speech
-from google.cloud.speech import enums
-from google.cloud.speech import types
 import pyaudio
 import wave
-from six.moves import queue
-import pygame
 import time
+
+from playsound import playsound
 
 from google.cloud import texttospeech
 client = texttospeech.TextToSpeechClient()
@@ -110,10 +103,7 @@ def transcribe_file(speech_file):
 
 def loadmp3player(file):
         # print(file)
-        pygame.init()
-        pygame.mixer.init()
-        pygame.mixer.music.load(file)
-        pygame.mixer.music.play()
+        playsound(file)
         time.sleep(0.5)
 
 def speak(response, counter):
@@ -288,14 +278,12 @@ def conversation():
         counter += 1
         speak(girlspeak, counter)
         time.sleep(5)
-        remove("/Users/sunjana/Desktop/TartanHacks2k19")
+        remove("/home/groot/OpenSourceStuff/hackDelhi")
         convoDone = True
 
 
 
 
-
-conversation()
 
 # # The response's audio_content is binary.
 # with open('output.mp3', 'wb') as out:
