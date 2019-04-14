@@ -110,16 +110,42 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_2.setText(_translate("MainWindow", "Your gateway to freedom!"))
         self.pushButton.setText(_translate("MainWindow", "Check for Autism"))
+        self.pushButton.clicked.connect(self.openTests)
         self.label_3.setText(_translate("MainWindow", "Not sure if this app is for you?"))
         self.label_5.setText(_translate("MainWindow", "Have a nice chit chat? We have your back and we don\'t judge either :-)"))
         self.label_7.setText(_translate("MainWindow", "Check for parkinson\'s disease "))
         self.pushButton_3.setText(_translate("MainWindow", "Coin Collection Game"))
-        self.pushButton_4.setText(_translate("MainWindow", "Mouse Game Expercise"))
+        self.pushButton_3.clicked.connect(self.openCoinCollect)
+        self.pushButton_4.setText(_translate("MainWindow", "Mouse Game Exercise"))
+        self.pushButton_4.clicked.connect(self.openMouseGame)
         self.label_9.setText(_translate("MainWindow", "Why? What if? No , I can\'t!"))
         self.pushButton_5.setText(_translate("MainWindow", "Feeling Depressed?"))
+        self.pushButton_5.clicked.connect(self.openTests)
         self.pushButton_6.setText(_translate("MainWindow", "Let\'s Talk"))
+        self.pushButton_6.clicked.connect(self.openChat)
         self.pushButton_2.setText(_translate("MainWindow", "Start a healthy Convo"))
+        self.pushButton_2.clicked.connect(self.clickConvo)
         self.menuHawking.setTitle(_translate("MainWindow", "Haw&king"))
+
+    def clickConvo(self):
+        import os
+        os.system('cd conversation && python3 ' + 'conversation.py' + ' & disown')
+
+    def openTests(self):
+        import os
+        os.system('python3 ' + 'result.py' + ' & disown')
+
+    def openCoinCollect(self):
+        import webbrowser
+        webbrowser.open_new("http://localhost:3000/handtrack")
+
+    def openMouseGame(self):
+        import webbrowser
+        webbrowser.open_new("http://localhost:3000/mouse")
+
+    def openChat(self):
+        import webbrowser
+        webbrowser.open_new("http://localhost:3000/chat")
 
 
 if __name__ == "__main__":
